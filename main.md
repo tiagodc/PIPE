@@ -6,7 +6,9 @@
 - Nome: Marcos
 - Próxima entrega: 31/05/2019
 - Objetivos globais:
-    - ...
+    - Sistema de que gere nuvens de pontos de qualidade
+        - Tratamento de dados
+        - Melhorar performance de corregistro
 
 ### Hardware
 - Nome: Gabriel
