@@ -5,7 +5,7 @@
 ### Software
 - Nome: Marcos
 - Próxima entrega: 31/05/2019
-- Objetivos:
+- Objetivos globais:
     - ...
 
 ### Hardware
