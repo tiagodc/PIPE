@@ -40,6 +40,17 @@ Figura 1: Tela do RViz durante processamento pelo LeGO-LOAM, com tópicos listad
 O objetivo do projeto é sermos capazes de gerar nuvens de pontos de boa qualidade, de qualquer um dos 3 sistemas listados acima, e utilizando todos os equipamentos disponíveis por nós (LiDAR + IMU + GPS). As metas pontuais são traçadas abaixo, em ordem de prioridade, e com os respectivos prazos de entrega:
 
 - (09/07/2019) Exportar output do LeGO-LOAM: identificar ou gerar os tópicos corretos para construção da nuvem de pontos corregistrada pós-SLAM
+  Solução: Cada nuvem em cada frame é concatenada em uma grande nuvem de pontos reduzida e publicada por meio do tópico   `laser_cloud_surround`. para exportar a nuvem após rodar o node do Lego-LOAM é necessário uma um bag para gravar os dados dos tópicos `rosbag record -o out /laser_cloud_surround` então rodar a emulação para processar o .bag e gerar a nuvem de pontos.
+  
+  Consequentemente, irá gerar um novo .bag com o corregistro. Para converter o arquivo .bag alvo para pcd. Basta rodar o comando
+  `rosrun pcl_ros bag_to_pcd <input>.bag /laser_cloud_surround pcd` sendo o input o .bag gerado no processo anterior
+  
+  ![Figura 2: Tela do RViz durante processamento pelo LeGO-LOAM.](rviz.png)
+Figura 2: Tela do RViz durante processamento pelo LeGO-LOAM.
+
+  ![Figura 3: Tela do CloudCompare após o processamento dos PDC's gerados pelo pcl_ros.](CC.png)
+Figura 3: Tela do CloudCompare após o processamento dos PDC's gerados pelo pcl_ros.
+
 - (16/07/2019) Viabilizar uso do LOAM atualizado com os dados do IMU: identificar as alterações realizadas nos eixos e orientação do sensor nos cálculos internos do sistema, e verificar se necessárias e quais alterações devem ser feitas nos dados do IMU antes do input para o LOAM
 - (30/07/2019) Exportar os dados de localização e orientação usados na transformação dos frames de nuvem de pontos
   - Atualmente entramos com os tópicos brutos dos sensores (`/velodyne_points` etc.) e exportamos os frames transformados diretamente do ROS (tópico `/velodyne_cloud_registered`). Idealmente só precisaríamos extrair exatamente a [matriz de transformação](https://en.wikipedia.org/wiki/Transformation_matrix) ou os dados de translação e rotação do LiDAR (x,y,z,roll,pitch,yaw) calculados pelo SLAM a cada frame de nuvem de pontos. Isso nos permite fazer as transformações necessárias fora do ambiente ROS, além de diversos testes e desenvolvimento de metodologias de correção de trajetória/posição após aplicação do SLAM.
