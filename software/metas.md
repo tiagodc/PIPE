@@ -40,7 +40,8 @@ Figura 1: Tela do RViz durante processamento pelo LeGO-LOAM, com tópicos listad
 O objetivo do projeto é sermos capazes de gerar nuvens de pontos de boa qualidade, de qualquer um dos 3 sistemas listados acima, e utilizando todos os equipamentos disponíveis por nós (LiDAR + IMU + GPS). As metas pontuais são traçadas abaixo, em ordem de prioridade, e com os respectivos prazos de entrega:
 
 - (09/07/2019) Exportar output do LeGO-LOAM: identificar ou gerar os tópicos corretos para construção da nuvem de pontos corregistrada pós-SLAM
-  Solução: Cada nuvem em cada frame é concatenada em uma grande nuvem de pontos reduzida e publicada por meio do tópico   `laser_cloud_surround`. para exportar a nuvem após rodar o node do Lego-LOAM é necessário uma um bag para gravar os dados dos tópicos `rosbag record -o out /laser_cloud_surround` então rodar a emulação para processar o .bag e gerar a nuvem de pontos.
+
+Solução: Cada nuvem em cada frame é concatenada em uma grande nuvem de pontos reduzida e publicada por meio do tópico   `laser_cloud_surround`. para exportar a nuvem após rodar o node do Lego-LOAM é necessário um novo processo para gravar os dados dos tópicos `rosbag record -o out /laser_cloud_surround` então rodar a emulação para processar o .bag e gerar a nuvem de pontos.
   
   Consequentemente, irá gerar um novo .bag com o corregistro. Para converter o arquivo .bag alvo para pcd. Basta rodar o comando
   `rosrun pcl_ros bag_to_pcd <input>.bag /laser_cloud_surround pcd` sendo o input o .bag gerado no processo anterior
