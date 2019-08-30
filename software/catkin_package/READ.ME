@@ -1,0 +1,32 @@
+Dependency:
+
+ - rospy
+ - csv
+ - pandas
+ - math
+
+
+HINT: run the node master: roscore
+
+
+to build:
+
+  git clone <PATH>
+  cd catkin_package
+  catkin_make install
+  source devel/setup.bash
+
+to run:
+  - get bag info:
+  	rosrun package_tf subBagfile.py <BAG_PATH>
+  - get tf info:
+	1.launch the SLAM package
+	2. run the subscriber node:
+		rosrun package_tf subscriber.tf
+	3 run the bag slowly (i.e --clock -r 0.5)
+  - transform bagfile:
+	1. run outer ROS the transformation.py (i am using python 3):
+		python3 transformation.py	
+
+
+
