@@ -1,0 +1,7 @@
+<launch>
+
+	<node name="bagfile_node" type="subBag.py" pkg="package_tf" output="screen" />
+	<node name="random_subscriber" type="subscriber.py" pkg="package_tf" output="screen" />
+	<node name="bagfile_listener" type="readBagfile.py" pkg="package_tf" output="screen" />
+
+</launch>

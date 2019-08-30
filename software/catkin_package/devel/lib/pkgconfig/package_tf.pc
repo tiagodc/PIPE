@@ -1,0 +1,8 @@
+prefix=/home/kayuga/catkin_package/devel
+
+Name: package_tf
+Description: Description of package_tf
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/kayuga/catkin_package/devel/lib 
+Requires: 
