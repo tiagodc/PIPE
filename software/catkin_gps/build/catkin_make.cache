@@ -1,0 +1,2 @@
+gps_listener
+-DCATKIN_DEVEL_PREFIX=/home/kayuga/catkin_gps/devel -DCMAKE_INSTALL_PREFIX=/home/kayuga/catkin_gps/install -G Unix Makefiles

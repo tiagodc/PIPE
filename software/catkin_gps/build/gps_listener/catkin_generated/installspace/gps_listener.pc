@@ -1,0 +1,8 @@
+prefix=/home/kayuga/catkin_gps/install
+
+Name: gps_listener
+Description: Description of gps_listener
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/kayuga/catkin_gps/install/lib 
+Requires: 
